@@ -1,5 +1,5 @@
 import React from "react";
-import { useCart } from "../context/Cart";
+import { useCart } from "../context/CartContext";
 
 const Cart = () => {
   const cart = useCart();
@@ -9,8 +9,8 @@ const Cart = () => {
     <div className="cart">
       <h1>Cart</h1>
       {cart &&
-        cart.items.map((item) => (
-          <li>
+        cart.items.map((item, index) => (
+          <li key={index}>
             {item.name} - ₹{item.price}
           </li>
         ))}
